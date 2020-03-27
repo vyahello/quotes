@@ -22,8 +22,8 @@ _**Note**: please take into account that it is built for demo purpose but not fo
 ## Tools
 
 - python 3.6 | 3.7 | 3.8
-- [django](https://www.djangoproject.com/)
-- [travisCI](https://travis-ci.org/)
+- [django](https://www.djangoproject.com/) web framework
+- [travis](https://travis-ci.org/) CI
 - code analysis
   - [pytest](https://pypi.org/project/pytest/)
   - [black](https://black.readthedocs.io/en/stable/)
@@ -55,9 +55,9 @@ Please check [changelog](CHANGELOG.md) file to get more details about actual ver
 
 ### Meta
 
-Author – Volodymyr Yahello
+Author – _Volodymyr Yahello_. Please check [authors](AUTHORS.md) file for more details.
 
-Distributed under the `MIT` license. See [LICENSE](LICENSE.md) for more information.
+Distributed under the `MIT` license. See [license](LICENSE.md) for more information.
 
 You can reach out me at:
 * [vyahello@gmail.com](vyahello@gmail.com)
