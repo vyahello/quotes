@@ -1,4 +1,4 @@
-"""WSGI config for app project.
+"""WSGI config for manager project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -9,5 +9,5 @@ import os
 from django.core.handlers.wsgi import WSGIHandler
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "app.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "manager.settings")
 application: WSGIHandler = get_wsgi_application()

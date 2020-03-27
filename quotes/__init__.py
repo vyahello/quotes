@@ -1,1 +1,1 @@
-"""Package contains interfaces to operate quotes application."""
+"""Package contains interfaces to operate app application."""

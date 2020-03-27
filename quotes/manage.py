@@ -13,8 +13,8 @@ except ImportError as exception:
 
 
 def __launch_management_tool() -> None:
-    """Runs main app management tool."""
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "app.settings")
+    """Runs main manager management tool."""
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "manager.settings")
     execute_from_command_line(sys.argv)
 
 

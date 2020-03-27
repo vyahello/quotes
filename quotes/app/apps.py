@@ -3,6 +3,6 @@ from django.apps import AppConfig
 
 
 class QuotesConfig(AppConfig):
-    """Main `quotes` application configuration."""
+    """Main `app` application configuration."""
 
-    name: str = "quotes"
+    name: str = "app"

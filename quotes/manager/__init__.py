@@ -1,1 +1,1 @@
-"""Package contains management API for an application."""
+"""Package contains managing interfaces for app manager."""
