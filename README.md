@@ -37,7 +37,7 @@ _**Note**: please take into account that it is built for demo purpose but not fo
 ### Quick start
 
 ```bash
-python app/manage.py runserver
+python manager/manage.py runserver
 ```
 
 _Pre setup_
@@ -45,7 +45,7 @@ _Pre setup_
 ```bash
 django-admin startproject app  # create application app
 django-admin startapp quotes  # create application source
-python app/manage.py migrate  # sync models with database
+python manager/manage.py migrate  # sync models with database
 ```
 
 ## Development notes
