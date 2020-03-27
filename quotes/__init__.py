@@ -1,1 +1,1 @@
-"""Represents API to operate quotes web application written in Django web framework."""
+"""Package contains interfaces to operate quotes application."""

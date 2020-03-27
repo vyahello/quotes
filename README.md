@@ -30,14 +30,23 @@ _**Note**: please take into account that it is built for demo purpose but not fo
   - [mypy](http://mypy.readthedocs.io/en/latest)
   - [pylint](https://www.pylint.org/)
   - [flake8](http://flake8.pycqa.org/en/latest/)
+  - [pydocstyle](https://github.com/PyCQA/pydocstyle)
 
 ## Usage
 
 ### Quick start
 
-### Source code
+```bash
+python app/manage.py runserver
+```
 
-**[⬆ back to top](#quotes)**
+_Pre setup_
+> Please use it as a reference to create fresh django application
+```bash
+django-admin startproject app  # create application app
+django-admin startapp quotes  # create application source
+python app/manage.py migrate  # sync models with database
+```
 
 ## Development notes
 
@@ -69,5 +78,3 @@ You can reach out me at:
 2. configure Git for the first time after cloning with your `name` and `email`
 3. `pip install -r requirements.txt` to install all project dependencies
 4. `pip install -r requirements-dev.txt` to install all development project dependencies
-
-**[⬆ back to top](#quotes)**
