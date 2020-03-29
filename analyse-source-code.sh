@@ -39,7 +39,7 @@ check-pylint() {
 :<<DOC
     Runs "pylint" code analyser
 DOC
-    --entry-point-box "pylint" && ( pylint $(find "${PACKAGE}/") )
+    --entry-point-box "pylint" && ( find ${PACKAGE} -type f -name "*.py" | xargs pylint )
 }
 
 
