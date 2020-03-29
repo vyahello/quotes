@@ -40,13 +40,14 @@ _**Note**: please take into account that it is built for demo purpose but not fo
 python quotes/manage.py runserver
 ```
 
-_Pre setup_
-> Please use it as a reference to create fresh django application
+### Pre setup
+> Please use it as a reference to create/manage fresh django application
 ```bash
 django-admin startproject manager  # create application manager
 django-admin startapp app  # create application source
 python quotes/manage.py makemigrations  # add new model (if exists) to database
 python quotes/manage.py migrate  # sync models with database
+python quotes/manage.py shell  # start interactive shell
 ```
 
 ## Development notes
