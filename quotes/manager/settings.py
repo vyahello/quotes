@@ -33,6 +33,7 @@ INSTALLED_APPS: List[str] = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.humanize",
     "app",
 ]
 MIDDLEWARE: List[str] = [
@@ -48,7 +49,7 @@ ROOT_URLCONF: str = "manager.urls"
 TEMPLATES: List[Any] = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "manager/templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

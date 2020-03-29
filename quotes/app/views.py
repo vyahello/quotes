@@ -12,3 +12,38 @@ def quotes(request: WSGIRequest) -> HttpResponse:
         request (WSGIRequest): user request
     """
     return render(request, "quotes/quotes.html", {"quotes": Quote.objects.all()})  # pylint:disable=no-member
+
+
+def detail_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
+    """Returns list of all quotes.
+
+    Args:
+        request (WSGIRequest): user request
+        primary_key (int): id number of a quote
+    """
+
+
+def new_quote(request: WSGIRequest) -> HttpResponse:
+    """Creates a new quote.
+
+    Args:
+        request (WSGIRequest): user request
+    """
+
+
+def edit_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
+    """Edits a single quote.
+
+    Args:
+        request (WSGIRequest): user request
+        primary_key (int): id number of a quote
+    """
+
+
+def delete_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
+    """Deletes a single quote.
+
+    Args:
+        request (WSGIRequest): user request
+        primary_key (int): id number of a quote
+    """
