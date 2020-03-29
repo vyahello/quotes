@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+
+  <div class="mui-panel">
+    <div class="mui-container">
+      <blockquote>{{ quote.quote }}</blockquote>
+      <cite>- {{ quote.author }}</cite>
+    </div>
+  </div>
+
+  <div class="mui-container">
+    <a class="mui-btn mui-btn--primary" href="{% url "quotes:edit_quote" quote.id %}">Edit</a>
+    <a class="mui-btn mui-btn--raised" href="{% url "quotes:quotes" %}">Go Back</a>
+  </div>
+
+{% endblock %}

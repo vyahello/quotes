@@ -1,7 +1,7 @@
 """Module represents API for routes."""
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Quote
 
 
@@ -21,6 +21,7 @@ def detail_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
         request (WSGIRequest): user request
         primary_key (int): id number of a quote
     """
+    return render(request, "quotes/detail_quote.html", {"quote": get_object_or_404(Quote, pk=primary_key)})
 
 
 def new_quote(request: WSGIRequest) -> HttpResponse:
