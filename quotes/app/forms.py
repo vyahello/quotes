@@ -1,5 +1,5 @@
 """Contains interfaces to form quotes."""
-from typing import List, Type, Tuple
+from typing import List, Tuple, Type
 from django.forms import ModelForm
 from .models import Quote
 

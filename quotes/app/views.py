@@ -3,9 +3,9 @@ from typing import Any, Dict
 from django.contrib import messages
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Quote
+from django.shortcuts import get_object_or_404, redirect, render
 from .forms import QuoteForm
+from .models import Quote
 
 
 def __fill_new_form(request: WSGIRequest, form: QuoteForm, message: str, context: Dict[str, Any]) -> HttpResponse:
@@ -56,7 +56,7 @@ def new_quote(request: WSGIRequest) -> HttpResponse:
         request (WSGIRequest): user request
     """
     form: QuoteForm = QuoteForm(data=request.POST or None)
-    return __fill_new_form(request, form, message="Added quote", context={"form": form})
+    return __fill_new_form(request, form, message="Quote is added", context={"form": form})
 
 
 def edit_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
@@ -68,7 +68,7 @@ def edit_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
     """
     quote: Quote = get_object_or_404(Quote, pk=primary_key)
     form: QuoteForm = QuoteForm(request.POST or None, instance=quote)
-    return __fill_new_form(request, form, message="Updated quote", context={"quote": quote, "form": form})
+    return __fill_new_form(request, form, message="Quote is updated", context={"quote": quote, "form": form})
 
 
 def delete_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
@@ -78,3 +78,9 @@ def delete_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
         request (WSGIRequest): user request
         primary_key (int): id number of a quote
     """
+    quote: Quote = get_object_or_404(Quote, pk=primary_key)
+    if request.method == "POST":
+        quote.delete()
+        messages.success(request, message="Quote is deleted")
+        return redirect(to="quotes:quotes")
+    return render(request, template_name="quotes/delete_quote.html", context={"quote": quote})
