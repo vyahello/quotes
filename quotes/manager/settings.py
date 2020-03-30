@@ -9,24 +9,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 import os
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, Sequence, Tuple
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY: str = "z6*^gkyb6avt*dzc30k7a8qqq(x6_!t2%3wor$h%38*i+#(jne"
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG: bool = True
-ALLOWED_HOSTS: List[str] = []
-
-# Application definition
-
-INSTALLED_APPS: List[str] = [
+ALLOWED_HOSTS: Sequence[str] = ("localhost", "127.0.0.1", "0.0.0.0")
+INSTALLED_APPS: Sequence[str] = (
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -35,8 +28,8 @@ INSTALLED_APPS: List[str] = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
     "app",
-]
-MIDDLEWARE: List[str] = [
+)
+MIDDLEWARE: Sequence[str] = (
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -44,9 +37,9 @@ MIDDLEWARE: List[str] = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-]
+)
 ROOT_URLCONF: str = "manager.urls"
-TEMPLATES: List[Any] = [
+TEMPLATES: Tuple[Any] = (
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [os.path.join(BASE_DIR, "manager/templates")],
@@ -60,9 +53,8 @@ TEMPLATES: List[Any] = [
             ],
         },
     },
-]
+)
 WSGI_APPLICATION: str = "manager.wsgi.application"
-
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -71,17 +63,15 @@ DATABASES: Dict[str, Dict[str, str]] = {
     "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": os.path.join(BASE_DIR, "db.sqlite3")}
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS: List[Dict[str, str]] = [
+AUTH_PASSWORD_VALIDATORS: Sequence[Dict[str, str]] = (
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
-]
-
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
