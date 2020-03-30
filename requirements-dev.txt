@@ -14,6 +14,7 @@ flake8-import-order==0.18.1
 flake8-annotations-complexity==0.0.4
 flake8-functions==0.0.4
 flake8-variables-names==0.0.3
+flake8-unused-arguments==0.0.3
 flake8-print==3.1.4
 flake8-eradicate==0.3.0
 flake8-builtins==1.5.2
