@@ -13,7 +13,7 @@
 
 # Quotes
 
-> Simple web application to show quotes of famous people.
+> Simple web application to show quotes of famous people https://quote-quote.herokuapp.com.
 >
 > It is built with **django** python web framework.
 

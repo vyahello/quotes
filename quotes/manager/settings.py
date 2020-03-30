@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 import os
 from typing import Any, Dict, Sequence, Tuple
+import dj_database_url
 
 BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -18,7 +19,7 @@ BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY: str = "z6*^gkyb6avt*dzc30k7a8qqq(x6_!t2%3wor$h%38*i+#(jne"
 DEBUG: bool = True
-ALLOWED_HOSTS: Sequence[str] = ("localhost", "127.0.0.1", "0.0.0.0")
+ALLOWED_HOSTS: Sequence[str] = ("localhost", "127.0.0.1", "0.0.0.0", "quote-quote.herokuapp.com")
 INSTALLED_APPS: Sequence[str] = (
     "django.contrib.admin",
     "django.contrib.auth",
@@ -30,6 +31,7 @@ INSTALLED_APPS: Sequence[str] = (
     "app",
 )
 MIDDLEWARE: Sequence[str] = (
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -88,3 +90,6 @@ USE_TZ: bool = True
 STATIC_URL: str = "/static/"
 PROJECT_ROOT: str = os.path.dirname(os.path.abspath(__file__))
 STATICFILES_DIRS: Tuple[str, ...] = (os.path.join(PROJECT_ROOT, "static"),)
+STATIC_ROOT: str = os.path.join(PROJECT_ROOT, "staticfiles")
+STATICFILES_STORAGE: str = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+DATABASES["default"].update(dj_database_url.config(conn_max_age=500))

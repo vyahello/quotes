@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath quotes quotes.manager.wsgi --log-file -
