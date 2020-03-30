@@ -48,6 +48,7 @@ django-admin startapp app  # create application source
 python quotes/manage.py makemigrations  # add new model (if exists) to database
 python quotes/manage.py migrate  # sync models with database
 python quotes/manage.py shell  # start interactive shell
+python quotes/manage.py createsuperuser  # create user for administration
 ```
 
 ## Development notes
