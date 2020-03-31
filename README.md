@@ -55,6 +55,20 @@ python quotes/manage.py createsuperuser  # create user for administration
 
 ## Development notes
 
+### Testing
+
+Generally, `pytest` tool is used to organize testing procedure.
+
+Please follow next command to run only **_unit_** tests:
+```bash
+pytest -m unit
+```
+
+Or only **_api_** tests:
+```bash
+pytest -m api
+```
+
 ### CI
 
 Project has Travis CI integration using [.travis.yml](.travis.yml) file thus code analysis (`black`, `pylint`, `flake8`, `mypy`, `pydocstyle`) and unittests (`pytest`) will be run automatically after every made change to the repository.

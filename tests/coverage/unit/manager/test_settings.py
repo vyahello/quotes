@@ -1,12 +1,12 @@
 from quotes.manager.settings import (
-    STATIC_URL,
-    ROOT_URLCONF,
-    INSTALLED_APPS,
-    WSGI_APPLICATION,
-    STATICFILES_DIRS,
     ALLOWED_HOSTS,
+    INSTALLED_APPS,
+    ROOT_URLCONF,
+    STATICFILES_DIRS,
+    STATIC_URL,
+    WSGI_APPLICATION,
 )
-from tests.markers import unit, param
+from tests.markers import param, unit
 
 pytestmark = unit
 
