@@ -3,8 +3,20 @@ python:
   - "3.6"
   - "3.7"
   - "3.8"
+addons:
+  chrome: stable
+  apt:
+    update: true
 before_install:
+  - wget -N http://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriver_linux64.zip -P ~/
+  - unzip ~/chromedriver_linux64.zip -d ~/
+  - rm ~/chromedriver_linux64.zip
+  - sudo mv -f ~/chromedriver /usr/local/share/
+  - sudo chmod +x /usr/local/share/chromedriver
+  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+install:
   - pip install pip -U
+  - pip install -r requirements.txt -U
   - pip install -r requirements-dev.txt -U
 script:
     - ./analyse-source-code.sh

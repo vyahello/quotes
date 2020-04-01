@@ -1,5 +1,5 @@
 from quotes.app.apps import QuotesConfig
-from tests.markers import unit
+from tests.coverage.markers import unit
 
 pytestmark = unit
 

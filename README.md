@@ -59,14 +59,19 @@ python quotes/manage.py createsuperuser  # create user for administration
 
 Generally, `pytest` tool is used to organize testing procedure.
 
-Please follow next command to run only **_unit_** tests:
+Please follow next command to run only **unit** tests:
 ```bash
 pytest -m unit
 ```
 
-Or only **_api_** tests:
+Or only **api** tests:
 ```bash
 pytest -m api
+```
+
+Or only **web** tests, eventually:
+```bash
+pytest -m web
 ```
 
 ### CI

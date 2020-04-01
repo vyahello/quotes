@@ -1,16 +1,15 @@
 import pytest
-from tests.markers import api
+from tests.coverage.markers import api
 from urequest.response import Response
 from urequest.session import Session
-from urequest.url import HttpsUrl
-
+from urequest.url import Address
 
 pytestmark = api
 
 
 @pytest.fixture(scope="module")
-def home_page(session: Session) -> Response:
-    yield session.get(HttpsUrl(host="quote-quote.herokuapp.com"))
+def home_page(session: Session, home_url: Address) -> Response:
+    yield session.get(home_url)
 
 
 @pytest.fixture(scope="module")
