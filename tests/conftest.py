@@ -5,7 +5,6 @@ import pytest
 from selenium.webdriver import Chrome
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.remote.webdriver import WebDriver
-from tests.coverage.web.helper.pages import HomePage
 from urequest.session import HttpSession, Session
 from urequest.url import Address, HttpsUrl
 
