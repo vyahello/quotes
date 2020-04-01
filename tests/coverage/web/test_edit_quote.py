@@ -15,8 +15,10 @@ def edit_page(browser: WebDriver) -> EditPage:
 
 
 def test_edit_current(edit_page: EditPage) -> None:
-    edit_page.fill_quote("If your dreams don't scare you, they aren't big enough")
-    edit_page.fill_author("Muhammad Ali")
-    edit_page.fill_source("https://www.blackfilm.com/read/2019/04/new-trailer-to-hbos-whats-my-name-muhammad-ali")
-    edit_page.fill_cover("https://www.blackfilm.com/read/wp-content/uploads/2019/04/Whats-My-Name.jpg")
+    edit_page.form().fill_quote("If your dreams don't scare you, they aren't big enough")
+    edit_page.form().fill_author("Muhammad Ali")
+    edit_page.form().fill_source(
+        "https://www.blackfilm.com/read/2019/04/new-trailer-to-hbos-whats-my-name-muhammad-ali"
+    )
+    edit_page.form().fill_cover("https://www.blackfilm.com/read/wp-content/uploads/2019/04/Whats-My-Name.jpg")
     assert edit_page.edit().message() == "Quote is updated"

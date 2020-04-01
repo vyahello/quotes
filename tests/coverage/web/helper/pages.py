@@ -48,6 +48,22 @@ class EditPageUrl(Address):
         return str(self._edit_url)
 
 
+class NewPageUrl(Address):
+    """New quote page url interface."""
+
+    def __init__(self) -> None:
+        self._new_url: Address = HttpsUrl(host="quote-quote.herokuapp.com", path="new")
+
+    def matcher(self) -> str:
+        return self._new_url.matcher()
+
+    def host(self) -> str:
+        return self._new_url.host()
+
+    def __str__(self) -> str:
+        return str(self._new_url)
+
+
 class QuotesPage(Page):
     """Unified quotes page interface."""
 
@@ -91,18 +107,11 @@ class HomePage(Page):
         return self._browser.find_element_by_id("messages").text.strip()
 
 
-class EditPage(Page):
-    """Edit page interface."""
+class _Form:
+    """Form input interface."""
 
-    def __init__(self, browser: WebDriver, page_id: int) -> None:
+    def __init__(self, browser: WebDriver) -> None:
         self._browser = browser
-        self._page: Page = QuotesPage(browser, EditPageUrl(page_id))
-
-    def navigate(self) -> None:
-        self._page.navigate()
-
-    def loaded(self) -> bool:
-        return self._page.loaded()
 
     def fill_quote(self, quote: str) -> None:
         self._fill(quote, location_id="id_quote", clear=True)
@@ -116,12 +125,52 @@ class EditPage(Page):
     def fill_cover(self, source: str) -> None:
         self._fill(source, location_id="id_cover", clear=True)
 
-    def edit(self) -> HomePage:
-        self._browser.find_element_by_id("edit").click()
-        return HomePage(self._browser)
-
     def _fill(self, value: str, location_id: str, clear: bool = False) -> None:
         field: WebElement = self._browser.find_element_by_id(location_id)
         if clear:
             field.clear()
         field.send_keys(value)
+
+
+class EditPage(Page):
+    """Edit page interface."""
+
+    def __init__(self, browser: WebDriver, page_id: int) -> None:
+        self._browser = browser
+        self._page: Page = QuotesPage(browser, EditPageUrl(page_id))
+        self._form: _Form = _Form(browser)
+
+    def navigate(self) -> None:
+        self._page.navigate()
+
+    def loaded(self) -> bool:
+        return self._page.loaded()
+
+    def form(self) -> _Form:
+        return self._form
+
+    def edit(self) -> HomePage:
+        self._browser.find_element_by_id("edit").click()
+        return HomePage(self._browser)
+
+
+class NewPage(Page):
+    """New page interface."""
+
+    def __init__(self, browser: WebDriver) -> None:
+        self._browser = browser
+        self._page: Page = QuotesPage(browser, NewPageUrl())
+        self._form: _Form = _Form(browser)
+
+    def navigate(self) -> None:
+        self._page.navigate()
+
+    def loaded(self) -> bool:
+        return self._page.loaded()
+
+    def form(self) -> _Form:
+        return self._form
+
+    def new(self) -> HomePage:
+        self._browser.find_element_by_css_selector("[value='New']").click()
+        return HomePage(self._browser)
