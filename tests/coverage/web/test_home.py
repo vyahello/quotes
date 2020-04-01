@@ -1,7 +1,7 @@
 import pytest
 from selenium.webdriver.remote.webdriver import WebDriver
-from tests.coverage.markers import web
 from tests.coverage.web.helper.pages import HomePage
+from tests.markers import web  # noqa: I100
 
 pytestmark = web
 

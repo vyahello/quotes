@@ -1,5 +1,5 @@
 import pytest
-from tests.coverage.markers import api
+from tests.markers import api
 from urequest.response import Response
 from urequest.session import Session
 from urequest.url import HttpsUrl

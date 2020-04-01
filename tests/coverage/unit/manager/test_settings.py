@@ -6,7 +6,7 @@ from quotes.manager.settings import (
     STATIC_URL,
     WSGI_APPLICATION,
 )
-from tests.coverage.markers import param, unit
+from tests.markers import param, unit
 
 pytestmark = unit
 
