@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
-from urequest.url import Address, HttpsUrl
+from tests.coverage.web.helper.urls import EditPageUrl, HomePageUrl, NewPageUrl
+from urequest.url import Address
 
 
 class Page(ABC):
@@ -16,52 +17,29 @@ class Page(ABC):
         pass
 
 
-class HomePageUrl(Address):
-    """Home page url interface."""
+class _Form:
+    """Form input interface."""
 
-    def __init__(self) -> None:
-        self._home_url: Address = HttpsUrl(host="quote-quote.herokuapp.com")
+    def __init__(self, browser: WebDriver) -> None:
+        self._browser = browser
 
-    def matcher(self) -> str:
-        return self._home_url.matcher()
+    def fill_quote(self, quote: str) -> None:
+        self._fill(quote, location_id="id_quote", clear=True)
 
-    def host(self) -> str:
-        return self._home_url.host()
+    def fill_author(self, author: str) -> None:
+        self._fill(author, location_id="id_author", clear=True)
 
-    def __str__(self) -> str:
-        return str(self._home_url)
+    def fill_source(self, source: str) -> None:
+        self._fill(source, location_id="id_source", clear=True)
 
+    def fill_cover(self, source: str) -> None:
+        self._fill(source, location_id="id_cover", clear=True)
 
-class EditPageUrl(Address):
-    """Home page url interface."""
-
-    def __init__(self, page_id: int) -> None:
-        self._edit_url: Address = HttpsUrl(host="quote-quote.herokuapp.com", path=f"edit/{page_id}")
-
-    def matcher(self) -> str:
-        return self._edit_url.matcher()
-
-    def host(self) -> str:
-        return self._edit_url.host()
-
-    def __str__(self) -> str:
-        return str(self._edit_url)
-
-
-class NewPageUrl(Address):
-    """New quote page url interface."""
-
-    def __init__(self) -> None:
-        self._new_url: Address = HttpsUrl(host="quote-quote.herokuapp.com", path="new")
-
-    def matcher(self) -> str:
-        return self._new_url.matcher()
-
-    def host(self) -> str:
-        return self._new_url.host()
-
-    def __str__(self) -> str:
-        return str(self._new_url)
+    def _fill(self, value: str, location_id: str, clear: bool = False) -> None:
+        field: WebElement = self._browser.find_element_by_id(location_id)
+        if clear:
+            field.clear()
+        field.send_keys(value)
 
 
 class QuotesPage(Page):
@@ -107,31 +85,6 @@ class HomePage(Page):
         return self._browser.find_element_by_id("messages").text.strip()
 
 
-class _Form:
-    """Form input interface."""
-
-    def __init__(self, browser: WebDriver) -> None:
-        self._browser = browser
-
-    def fill_quote(self, quote: str) -> None:
-        self._fill(quote, location_id="id_quote", clear=True)
-
-    def fill_author(self, author: str) -> None:
-        self._fill(author, location_id="id_author", clear=True)
-
-    def fill_source(self, source: str) -> None:
-        self._fill(source, location_id="id_source", clear=True)
-
-    def fill_cover(self, source: str) -> None:
-        self._fill(source, location_id="id_cover", clear=True)
-
-    def _fill(self, value: str, location_id: str, clear: bool = False) -> None:
-        field: WebElement = self._browser.find_element_by_id(location_id)
-        if clear:
-            field.clear()
-        field.send_keys(value)
-
-
 class EditPage(Page):
     """Edit page interface."""
 
@@ -173,4 +126,23 @@ class NewPage(Page):
 
     def new(self) -> HomePage:
         self._browser.find_element_by_css_selector("[value='New']").click()
+        return HomePage(self._browser)
+
+
+class DeletePage(Page):
+    """New page interface."""
+
+    def __init__(self, browser: WebDriver) -> None:
+        self._browser = browser
+        self._page: Page = HomePage(browser)
+
+    def navigate(self) -> None:
+        self._page.navigate()
+        self._browser.find_element_by_class_name("mui-btn--danger").click()
+
+    def loaded(self) -> bool:
+        return self._page.loaded()
+
+    def delete(self) -> HomePage:
+        self._browser.find_element_by_id("delete").click()
         return HomePage(self._browser)
