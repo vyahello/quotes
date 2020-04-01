@@ -11,8 +11,8 @@
   </div>
 
   <div class="mui-container">
-    <a class="mui-btn mui-btn--primary" href="{% url "quotes:edit_quote" quote.id %}">Edit</a>
-    <a class="mui-btn mui-btn--raised" href="{% url "quotes:quotes" %}">Go Back</a>
+    <a class="mui-btn mui-btn--primary" id="edit" href="{% url "quotes:edit_quote" quote.id %}">Edit</a>
+    <a class="mui-btn mui-btn--raised" id="back" href="{% url "quotes:quotes" %}">Go Back</a>
   </div>
 
 {% endblock %}

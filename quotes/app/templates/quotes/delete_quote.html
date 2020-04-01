@@ -8,8 +8,8 @@
     {% csrf_token %}
     <blockquote>{{ quote.quote }}</blockquote>
     <p>Are you sure you want to delete this quote?</p>
-    <input class="mui-btn mui-btn--danger" type="submit" value="Delete" />
-    <a class="mui-btn mui-btn--raised" href="{% url "quotes:quotes" %}">Go Back</a>
+    <input class="mui-btn mui-btn--danger" id="delete" type="submit" value="Delete" />
+    <a class="mui-btn mui-btn--raised" id="back" href="{% url "quotes:quotes" %}">Go Back</a>
   </form>
 
 {% endblock %}

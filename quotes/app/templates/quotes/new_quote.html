@@ -18,8 +18,8 @@
       </td>
     {% endfor %}
 
-    <input class="mui-btn mui-btn--primary" type="submit" value="{% if quote %}Edit{% else %}New{% endif %}" />
-    <a class="mui-btn mui-btn--raised" href="{% url "quotes:quotes" %}">Go Back</a>
+    <input class="mui-btn mui-btn--primary" id="edit" type="submit" value="{% if quote %}Edit{% else %}New{% endif %}" />
+    <a class="mui-btn mui-btn--raised" id="back" href="{% url "quotes:quotes" %}">Go Back</a>
   </form>
 
 {% endblock %}
