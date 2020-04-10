@@ -9,7 +9,7 @@ pytestmark = api
 
 @pytest.fixture(scope="module")
 def edit_quote_page(session: Session) -> Response:
-    yield session.get(HttpsUrl(host="quote-quote.herokuapp.com", path="edit/3"))
+    yield session.get(HttpsUrl(host="quote-quote.herokuapp.com", path="edit/2"))
 
 
 @pytest.fixture(scope="module")

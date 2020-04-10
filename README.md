@@ -10,6 +10,7 @@
 [![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.md)
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
+[![CodeFactor](https://www.codefactor.io/repository/github/vyahello/quotes/badge)](https://www.codefactor.io/repository/github/vyahello/quotes)
 
 # Quotes
 
@@ -90,7 +91,7 @@ Project has Travis CI integration using [.travis.yml](.travis.yml) file thus cod
 
 To be able to run code analysis, please execute command below:
 ```bash
-➜ ./analyse-source-code.sh
+./analyse-source-code.sh
 ```
 ### Release notes
 
