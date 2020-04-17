@@ -1,6 +1,12 @@
 Versions
 ========
 
+0.1.1 (17.04.2020)
+==========
+- Link login button to the main page
+- Implement templates for login & registration
+- Configure 'django registration' settings
+
 0.0.2 (01.03.2020)
 ==========
 - Cover WEB UI tests on 'delete a quote' functionality
