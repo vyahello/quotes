@@ -11,5 +11,5 @@ class QuoteForm(ModelForm):
         """Represents meta info."""
 
         model: Type[Quote] = Quote
-        exclude: Tuple[str, ...] = ()
+        exclude: Tuple[str, ...] = ("user",)
         field: List[str] = ["quote", "author", "source", "cover"]

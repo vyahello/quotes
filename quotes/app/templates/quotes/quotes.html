@@ -18,16 +18,24 @@
         <tr>
           <td><a href="{% url "quotes:detail_quote" quote.id %}">{{ quote.quote }}</a></td>
           <td>{{ quote.author }}</td>
-          <td>{{ quote.added|timesince }} ago</td> <!-- 'timesince' converts datetime into more readable timestamp -->
+          <td>{{ quote.added|timesince }} ago by {{ quote.user }}</td> <!-- 'timesince' converts datetime into more readable timestamp -->
+            {% if quote.user == request.user %}
           <td><a class="mui-bDeleted mui-btn--small mui-btn--flat mui-btn--primary" href="{% url "quotes:edit_quote" quote.id %}">Edit</a></td>
           <td><a class="mui-btn mui-btn--small mui-btn--flat mui-btn--danger" href="{% url "quotes:delete_quote" quote.id %}">Delete</a></td>
+            {% else %}
+            <td colspan="2"></td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>
   </table>
 
   <div class="mui-container">
-    <a class="mui-btn mui-btn--primary" id="new" href="{% url "quotes:new_quote" %}">Add quote</a> <!-- link to add a new quote -->
+      {% if request.user.is_authenticated %}
+      <a class="mui-btn mui-btn--primary" id="new" href="{% url "quotes:new_quote" %}">Add quote</a> <!-- link to add a new quote -->
+      {% else %}
+      <a class="mui-btn mui-btn--primary" href="{% url "login" %}">Login</a>
+      {% endif %}
   </div>
 
 {% endblock %}

@@ -5,7 +5,7 @@ from django.db.models import AutoField, CharField, DateTimeField, TextField, URL
 
 
 class Migration(BaseMigration):
-    """Represents internal migration."""
+    """Represents initial migration."""
 
     initial: bool = True
     dependencies: List[str] = []

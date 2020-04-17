@@ -1,6 +1,7 @@
 """Module represents API for routes."""
 from typing import Any, Dict
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -18,6 +19,8 @@ def __fill_new_form(request: WSGIRequest, form: QuoteForm, message: str, context
         context (dict): data
     """
     if form.is_valid():
+        form = form.save(commit=False)
+        form.user = request.user
         form.save()
         messages.success(request, message)
         return redirect(to="quotes:quotes")
@@ -49,6 +52,7 @@ def detail_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
     )
 
 
+@login_required
 def new_quote(request: WSGIRequest) -> HttpResponse:
     """Creates a new quote.
 
@@ -59,6 +63,7 @@ def new_quote(request: WSGIRequest) -> HttpResponse:
     return __fill_new_form(request, form, message="Quote is added", context={"form": form})
 
 
+@login_required
 def edit_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
     """Edits a single quote.
 
@@ -66,11 +71,12 @@ def edit_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
         request (WSGIRequest): user request
         primary_key (int): id number of a quote
     """
-    quote: Quote = get_object_or_404(Quote, pk=primary_key)
+    quote: Quote = get_object_or_404(Quote, pk=primary_key, user=request.user)
     form: QuoteForm = QuoteForm(request.POST or None, instance=quote)
     return __fill_new_form(request, form, message="Quote is updated", context={"quote": quote, "form": form})
 
 
+@login_required
 def delete_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
     """Deletes a single quote.
 
@@ -78,7 +84,7 @@ def delete_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
         request (WSGIRequest): user request
         primary_key (int): id number of a quote
     """
-    quote: Quote = get_object_or_404(Quote, pk=primary_key)
+    quote: Quote = get_object_or_404(Quote, pk=primary_key, user=request.user)
     if request.method == "POST":
         quote.delete()
         messages.success(request, message="Quote is deleted")

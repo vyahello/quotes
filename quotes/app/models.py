@@ -1,6 +1,7 @@
 """Module represents API for database models."""
 from typing import List
-from django.db.models import CharField, DateTimeField, Field, Model, TextField, URLField
+from django.db.models import CASCADE, CharField, DateTimeField, Field, ForeignKey, Model, TextField, URLField
+from django_registration.forms import User
 
 
 class Quote(Model):
@@ -12,10 +13,11 @@ class Quote(Model):
     cover: Field = URLField(blank=True, null=True)
     added: Field = DateTimeField(auto_now_add=True)
     edited: Field = DateTimeField(auto_now=True)
+    user = ForeignKey(User, on_delete=CASCADE, blank=True, null=True)
 
     def __str__(self) -> str:
         """Returns quote as a string."""
-        return f"{self.quote} - {self.author}"
+        return f"{self.quote} - {self.author} (submitted by {self.user})"
 
     class Meta:
         """Represents quote meta data."""
