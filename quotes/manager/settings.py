@@ -29,7 +29,9 @@ INSTALLED_APPS: Sequence[str] = (
     "django.contrib.staticfiles",
     "django.contrib.humanize",
     "django_registration",
+    "rest_framework",
     "app",
+    "api",
 )
 MIDDLEWARE: Sequence[str] = (
     "whitenoise.middleware.WhiteNoiseMiddleware",
