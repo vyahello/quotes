@@ -106,3 +106,10 @@ EMAIL_PORT: int = 587
 EMAIL_USE_TLS: bool = True
 EMAIL_HOST_USER: str = ""
 EMAIL_HOST_PASSWORD: str = ""
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+}
