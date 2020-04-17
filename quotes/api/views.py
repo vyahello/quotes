@@ -5,8 +5,11 @@ from app.models import Quote  # pylint: disable=import-error
 from .serializers import QuoteSerializer
 
 
-class QuoteList(ListCreateAPIView):
-    """Represents a quote list route."""
+class Quotes(ListCreateAPIView):
+    """Represents a quotes (GET) route.
+
+    Endpoint is /api
+    """
 
     queryset: List[Quote] = Quote.objects.all()
     serializer_class: Type[QuoteSerializer] = QuoteSerializer

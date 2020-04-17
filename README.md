@@ -70,6 +70,10 @@ python quotes/manage.py shell  # start interactive shell
 python quotes/manage.py createsuperuser  # create user for administration
 ```
 
+### Admin management
+
+To manage an application please use http://127.0.0.1:8000/admin endpoint.
+
 ### Testing
 
 Generally, `pytest` tool is used to organize testing procedure.
