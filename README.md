@@ -37,6 +37,10 @@ _**Note**: please take into account that it is built for demo purpose but not fo
 
 ![Usage](usage.gif)
 
+### Quick start 
+
+Please use https://quote-quote.herokuapp.com deployed application.
+
 ### Docker
 
 ```bash

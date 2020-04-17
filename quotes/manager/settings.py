@@ -28,6 +28,7 @@ INSTALLED_APPS: Sequence[str] = (
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
+    "django_registration",
     "app",
 )
 MIDDLEWARE: Sequence[str] = (
@@ -93,3 +94,7 @@ STATICFILES_DIRS: Tuple[str, ...] = (os.path.join(PROJECT_ROOT, "static"),)
 STATIC_ROOT: str = os.path.join(PROJECT_ROOT, "staticfiles")
 STATICFILES_STORAGE: str = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DATABASES["default"].update(dj_database_url.config(conn_max_age=500))
+
+ACCOUNT_ACTIVATION_DAYS: int = 7  # amount of days for link to be activated
+LOGOUT_REDIRECT_URL: str = "quotes"
+LOGIN_REDIRECT_URL: str = "quotes"
