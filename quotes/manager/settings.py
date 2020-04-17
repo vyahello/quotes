@@ -96,5 +96,11 @@ STATICFILES_STORAGE: str = "whitenoise.storage.CompressedManifestStaticFilesStor
 DATABASES["default"].update(dj_database_url.config(conn_max_age=500))
 
 ACCOUNT_ACTIVATION_DAYS: int = 7  # amount of days for link to be activated
-LOGOUT_REDIRECT_URL: str = "quotes"
-LOGIN_REDIRECT_URL: str = "quotes"
+LOGOUT_REDIRECT_URL: str = "quotes:quotes"
+LOGIN_REDIRECT_URL: str = "quotes:quotes"
+
+EMAIL_HOST: str = "smtp.sendgrid.net"
+EMAIL_PORT: int = 587
+EMAIL_USE_TLS: bool = True
+EMAIL_HOST_USER: str = ""
+EMAIL_HOST_PASSWORD: str = ""

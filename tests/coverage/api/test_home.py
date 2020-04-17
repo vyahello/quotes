@@ -36,4 +36,4 @@ def test_record_table(home_content: str) -> None:
 def test_navigation(home_content: str) -> None:
     assert "About" in home_content
     assert "Login" in home_content
-    assert "Add a quote" in home_content
+    assert "Add quote" in home_content

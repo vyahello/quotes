@@ -8,7 +8,7 @@ pytestmark = web
 
 @pytest.fixture()
 def edit_page(browser: WebDriver) -> EditPage:
-    page: EditPage = EditPage(browser, page_id=3)
+    page: EditPage = EditPage(browser, page_id=47)
     if not page.loaded():
         page.navigate()
     yield page
