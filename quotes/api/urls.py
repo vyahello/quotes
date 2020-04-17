@@ -1,7 +1,7 @@
 """Represents URL endpoints for an application."""
 from typing import Any, List
-from django.urls import path, include
-from .views import Quotes, QuoteDetail
+from django.urls import include, path
+from .views import QuoteDetail, Quotes
 
 urlpatterns: List[Any] = [
     path("", Quotes.as_view()),

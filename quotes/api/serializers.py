@@ -1,7 +1,7 @@
 """Contains API for serializers."""
 from typing import Sequence, Type
 from rest_framework.serializers import ModelSerializer
-from app.models import Quote  # pylint: disable=import-error
+from app.models import Quote
 
 
 class QuoteSerializer(ModelSerializer):

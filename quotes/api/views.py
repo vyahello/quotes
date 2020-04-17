@@ -1,8 +1,9 @@
 """Module represents API for routes."""
 from typing import List, Type
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from app.models import Quote  # pylint: disable=import-error
+from app.models import Quote
 from .serializers import QuoteSerializer
+from .permissions import IsOwnerOrReadOnly
 
 
 class Quotes(ListCreateAPIView):
@@ -21,5 +22,6 @@ class QuoteDetail(RetrieveUpdateDestroyAPIView):
     Endpoint is `/api/<id>`
     """
 
+    permission_classes = (IsOwnerOrReadOnly,)
     queryset: List[Quote] = Quote.objects.all()
     serializer_class: Type[QuoteSerializer] = QuoteSerializer
