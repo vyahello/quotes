@@ -74,6 +74,8 @@ python quotes/manage.py createsuperuser  # create user for administration
 
 To manage an application please use http://127.0.0.1:8000/admin endpoint.
 
+Please use `admin` superuser for management.
+
 ### Testing
 
 Generally, `pytest` tool is used to organize testing procedure.
