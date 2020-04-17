@@ -76,6 +76,15 @@ To manage an application please use http://127.0.0.1:8000/admin endpoint.
 
 Please use `admin` superuser for management.
 
+### REST Api
+
+Rest api is build with `djangorestframework` followed by https://www.django-rest-framework.org documentation.
+
+Here are available api endpoints:
+
+- `/api`: _Retrieves all quotes_
+- `/api/<id>`: _Retrieves a single quote by it's id_
+
 ### Testing
 
 Generally, `pytest` tool is used to organize testing procedure.
