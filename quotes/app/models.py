@@ -13,7 +13,7 @@ class Quote(Model):
     cover: Field = URLField(blank=True, null=True)
     added: Field = DateTimeField(auto_now_add=True)
     edited: Field = DateTimeField(auto_now=True)
-    user = ForeignKey(User, on_delete=CASCADE, blank=True, null=True)
+    user: Field = ForeignKey(User, on_delete=CASCADE, blank=True, null=True)
 
     def __str__(self) -> str:
         """Returns quote as a string."""

@@ -10,6 +10,10 @@ class Quotes(ListCreateAPIView):
     """Responsible for retrieving all quotes from an application.
 
     Endpoint is `/api/`
+
+    ``GET``: retrieve all quotes
+
+    ``POST``: creates a new quote
     """
 
     queryset: List[Quote] = Quote.objects.all()
@@ -20,6 +24,12 @@ class QuoteDetail(RetrieveUpdateDestroyAPIView):
     """Responsible for retrieving a single quote from an application.
 
     Endpoint is `/api/<id>`
+
+    ``GET``: retrieve a single quote
+
+    ``PUT``: updates a single quote
+
+    ``DELETE``: deletes a single quote
     """
 
     permission_classes = (IsOwnerOrReadOnly,)

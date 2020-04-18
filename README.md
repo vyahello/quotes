@@ -78,12 +78,18 @@ Please use `admin` superuser for management.
 
 ### REST Api
 
-Rest api is build with `djangorestframework` followed by https://www.django-rest-framework.org documentation.
+Rest api is build with `djangorestframework` and `drf-yasg` (swagger) libraries.
 
 Here are available api endpoints:
+- `/api`: 
+  - `GET`: _Retrieves all quotes_
+  - `POST`: _Creates a new quote_
+- `/api/<id>`:
+  - `GET`: _Retrieves a single quote by it's id_
+  - `PUT`: _Updates a single quote by it's id_
+  - `DELETE`: _Deletes a quote by it's id_
 
-- `/api`: _Retrieves all quotes_
-- `/api/<id>`: _Retrieves a single quote by it's id_
+> Please refer to `/api/docs` endpoint provides a neat swagger REST API documentation.
 
 ### Testing
 

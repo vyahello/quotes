@@ -30,6 +30,7 @@ INSTALLED_APPS: Sequence[str] = (
     "django.contrib.humanize",
     "django_registration",
     "rest_framework",
+    "drf_yasg",
     "app",
     "api",
 )
