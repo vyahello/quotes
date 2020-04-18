@@ -59,24 +59,7 @@ Then please access an application via http://127.0.0.1:8000 endpoint
 
 ## Development notes
 
-### Pre setup
-> Please use it as a reference to create/manage fresh django application
-```bash
-django-admin startproject manager  # create application manager
-django-admin startapp app  # create application source
-python quotes/manage.py makemigrations  # add new model (if exists) to database
-python quotes/manage.py migrate  # sync models with database
-python quotes/manage.py shell  # start interactive shell
-python quotes/manage.py createsuperuser  # create user for administration
-```
-
-### Admin management
-
-To manage an application please use http://127.0.0.1:8000/admin endpoint.
-
-Please use `admin` superuser for management.
-
-### REST Api
+### REST API
 
 Rest api is build with `djangorestframework` and `drf-yasg` (swagger) libraries.
 
@@ -89,7 +72,22 @@ Here are available api endpoints:
   - `PUT`: _Updates a single quote by it's id_
   - `DELETE`: _Deletes a quote by it's id_
 
-> Please refer to `/api/docs` endpoint provides a neat swagger REST API documentation.
+> Please refer to `/api/docs` endpoint which provides a neat swagger REST API documentation.
+
+### Setup
+> Please use it as a reference to create/manage fresh django application
+```bash
+django-admin startproject manager  # create application manager
+django-admin startapp app  # create application source
+python quotes/manage.py makemigrations  # add new model (if exists) to database
+python quotes/manage.py migrate  # sync models with database
+python quotes/manage.py shell  # start interactive shell
+python quotes/manage.py createsuperuser  # create user for administration
+```
+
+To manage an application please use `/admin` endpoint.
+
+Please use `admin` superuser for management.
 
 ### Testing
 
