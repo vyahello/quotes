@@ -1,5 +1,5 @@
 FROM vyahello/quotes-base:0.1.0
-LABEL version=0.1.0 \
+LABEL version=0.1.2 \
       metadata="The main image for quotes application" \
       maintainer="Volodymyr Yahello <vyahello@gmail.com>"
 ARG VERSION
