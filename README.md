@@ -22,9 +22,13 @@ _**Note**: please take into account that it is built for demo purpose but not fo
 
 ## Tools
 
-- python 3.6 | 3.7 | 3.8
-- [django](https://www.djangoproject.com/) web framework
-- [travis](https://travis-ci.org/) CI
+- front-end
+  - html5
+  - css3
+- back-end
+  - python 3.6 | 3.7 | 3.8
+  - [django](https://www.djangoproject.com/) web framework
+- [docker](https://www.docker.com/) >= 18.0
 - code analysis
   - [pytest](https://pypi.org/project/pytest/)
   - [black](https://black.readthedocs.io/en/stable/)
@@ -32,6 +36,7 @@ _**Note**: please take into account that it is built for demo purpose but not fo
   - [pylint](https://www.pylint.org/)
   - [flake8](http://flake8.pycqa.org/en/latest/)
   - [pydocstyle](https://github.com/PyCQA/pydocstyle)
+  - [travis](https://travis-ci.org/) CI
 
 ## Usage
 
