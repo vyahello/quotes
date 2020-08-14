@@ -10,6 +10,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.md)
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
 [![CodeFactor](https://www.codefactor.io/repository/github/vyahello/quotes/badge)](https://www.codefactor.io/repository/github/vyahello/quotes)
+[![Docker pulls](https://img.shields.io/docker/pulls/vyahello/quotes.svg)](https://hub.docker.com/repository/docker/vyahello/quotes)
 
 # Quotes
 
