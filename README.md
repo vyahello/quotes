@@ -15,7 +15,7 @@
 
 # Quotes
 
-> Simple web application to show quotes of famous people https://quote-quote.herokuapp.com.
+> Simple web application to show quotes of famous people.
 >
 > It is built with **django** python web framework.
 
@@ -27,7 +27,7 @@ _**Note**: please take into account that it is built for demo purpose but not fo
   - html5
   - css3
 - back-end
-  - python 3.6 | 3.7 | 3.8
+  - python 3.6, 3.7, 3.8
   - [django](https://www.djangoproject.com/) web framework
 - [docker](https://www.docker.com/) >= 18.0
 - code analysis
@@ -53,7 +53,7 @@ Please use https://quote-quote.herokuapp.com deployed application.
 docker run --rm -it -p 3000:5001 vyahello/quotes:<version> quotes
 ```
 
-Then please access an application via http://0.0.0.0:3000 endpoint
+> Please access an application via http://0.0.0.0:3000 endpoint
 
 ### Source code
 
@@ -61,7 +61,9 @@ Then please access an application via http://0.0.0.0:3000 endpoint
 python quotes/manage.py runserver
 ```
 
-Then please access an application via http://127.0.0.1:8000 endpoint
+> Please access an application via http://127.0.0.1:8000 endpoint
+
+**[⬆ back to top](#quotes)**
 
 ## Development notes
 
@@ -138,7 +140,20 @@ You can reach out me at:
 * [https://www.linkedin.com/in/volodymyr-yahello-821746127](https://www.linkedin.com/in/volodymyr-yahello-821746127)
 
 ### Contributing
-1. clone the repository
-2. configure Git for the first time after cloning with your `name` and `email`
+I would highly appreciate any contribution and support. If you are interested to add your ideas into project please follow next simple steps:
+
+1. Clone the repository
+2. Configure `git` for the first time after cloning with your `name` and `email`
 3. `pip install -r requirements.txt` to install all project dependencies
 4. `pip install -r requirements-dev.txt` to install all development project dependencies
+5. Create your feature branch (git checkout -b feature/fooBar)
+6. Commit your changes (git commit -am 'Add some fooBar')
+7. Push to the branch (git push origin feature/fooBar)
+8. Create a new Pull Request
+
+### What's next
+
+All recent activities and ideas are described at project [issues](https://github.com/vyahello/quotes/issues) page. 
+If you have ideas you want to change/implement please do not hesitate and create an issue.
+
+**[⬆ back to top](#quotes)**
