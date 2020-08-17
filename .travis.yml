@@ -20,6 +20,7 @@ install:
   - pip install -r requirements-dev.txt -U
 script:
     - ./analyse-source-code.sh
+    - ./test-docker-image.sh
 after_success:
   - coveralls
 notifications:

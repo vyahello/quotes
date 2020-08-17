@@ -13,7 +13,7 @@ DOC
          docker run ${IMAGE_REPO}:${IMAGE_VERSION} --help
 
       - 'quotes' to run quotes web application
-         docker run -it -p <local-port>:${SERVER_PORT} ${IMAGE_REPO}:${IMAGE_VERSION} quotes
+         docker run -it -p {local-port}:${SERVER_PORT} ${IMAGE_REPO}:${IMAGE_VERSION} quotes
 HELP
 }
 
