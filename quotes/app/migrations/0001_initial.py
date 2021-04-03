@@ -1,7 +1,13 @@
 """Contains interfaces for initial migrations."""
 from typing import List
 from django.db.migrations import CreateModel, Migration as BaseMigration
-from django.db.models import AutoField, CharField, DateTimeField, TextField, URLField
+from django.db.models import (
+    AutoField,
+    CharField,
+    DateTimeField,
+    TextField,
+    URLField,
+)
 
 
 class Migration(BaseMigration):
@@ -13,7 +19,15 @@ class Migration(BaseMigration):
         CreateModel(
             name="Quote",
             fields=[
-                ("id", AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("quote", TextField()),
                 ("author", CharField(max_length=100)),
                 ("source", URLField(blank=True, null=True)),

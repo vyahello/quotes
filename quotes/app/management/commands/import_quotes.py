@@ -20,7 +20,10 @@ class Command(BaseCommand):
     def add_arguments(self, parser: CommandParser) -> None:
         """Adds arguments to the command."""
         parser.add_argument(
-            "--username", dest="username", default="quoteuser", help="username to associate the quotes with",
+            "--username",
+            dest="username",
+            default="quoteuser",
+            help="username to associate the quotes with",
         )
         parser.add_argument(
             "--limit",
@@ -39,7 +42,8 @@ class Command(BaseCommand):
             user: User = User.objects.get(username=username)
         except User.DoesNotExist:  # pylint: disable=no-member
             error: str = (
-                f"User {username} does not exist in DB, create it " "via manage.py or register on the quotes site"
+                f"User {username} does not exist in DB, create it "
+                "via manage.py or register on the quotes site"
             )
             sys.exit(error)
 
@@ -49,11 +53,17 @@ class Command(BaseCommand):
             sys.exit("Please specify an numeric value for limit")
 
         headers: List[str] = "quote author genre".split()
-        reader = DictReader(requests.get(self.QUOTES_URL).text.strip().splitlines(), fieldnames=headers, delimiter=";")
+        reader = DictReader(
+            requests.get(self.QUOTES_URL).text.strip().splitlines(),
+            fieldnames=headers,
+            delimiter=";",
+        )
 
         quotes: List[Quote] = []
         for row in list(reader)[1 : max_quotes + 1]:
-            quotes.append(Quote(quote=row["quote"], author=row["author"], user=user))
+            quotes.append(
+                Quote(quote=row["quote"], author=row["author"], user=user)
+            )
 
         Quote.objects.bulk_create(quotes)
         print(f"Done: {max_quotes} quotes created")

@@ -31,6 +31,8 @@ def test_static_files_dirs():
     assert "static" in STATICFILES_DIRS[0]
 
 
-@param("host", ("localhost", "127.0.0.1", "0.0.0.0", "quote-quote.herokuapp.com"))
+@param(
+    "host", ("localhost", "127.0.0.1", "0.0.0.0", "quote-quote.herokuapp.com")
+)
 def test_allowed_host(host: str) -> None:
     assert host in ALLOWED_HOSTS

@@ -21,7 +21,9 @@ class EditPageUrl(Address):
     """Home page url interface."""
 
     def __init__(self, page_id: int) -> None:
-        self._edit_url: Address = HttpsUrl(host="quote-quote.herokuapp.com", path=f"edit/{page_id}")
+        self._edit_url: Address = HttpsUrl(
+            host="quote-quote.herokuapp.com", path=f"edit/{page_id}"
+        )
 
     def matcher(self) -> str:
         return self._edit_url.matcher()
@@ -37,7 +39,9 @@ class NewPageUrl(Address):
     """New quote page url interface."""
 
     def __init__(self) -> None:
-        self._new_url: Address = HttpsUrl(host="quote-quote.herokuapp.com", path="new")
+        self._new_url: Address = HttpsUrl(
+            host="quote-quote.herokuapp.com", path="new"
+        )
 
     def matcher(self) -> str:
         return self._new_url.matcher()

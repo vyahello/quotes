@@ -19,7 +19,12 @@ BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY: str = "z6*^gkyb6avt*dzc30k7a8qqq(x6_!t2%3wor$h%38*i+#(jne"
 DEBUG: bool = True
-ALLOWED_HOSTS: Sequence[str] = ("localhost", "127.0.0.1", "0.0.0.0", "quote-quote.herokuapp.com")
+ALLOWED_HOSTS: Sequence[str] = (
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0",
+    "quote-quote.herokuapp.com",
+)
 INSTALLED_APPS: Sequence[str] = (
     "django.contrib.admin",
     "django.contrib.auth",
@@ -66,17 +71,26 @@ WSGI_APPLICATION: str = "manager.wsgi.application"
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES: Dict[str, Dict[str, str]] = {
-    "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": os.path.join(BASE_DIR, "db.sqlite3")}
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+    }
 }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS: Sequence[Dict[str, str]] = (
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    },
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"
+    },
 )
 
 # Internationalization
@@ -95,7 +109,9 @@ STATIC_URL: str = "/static/"
 PROJECT_ROOT: str = os.path.dirname(os.path.abspath(__file__))
 STATICFILES_DIRS: Tuple[str, ...] = (os.path.join(PROJECT_ROOT, "static"),)
 STATIC_ROOT: str = os.path.join(PROJECT_ROOT, "staticfiles")
-STATICFILES_STORAGE: str = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE: str = (
+    "whitenoise.storage.CompressedManifestStaticFilesStorage"
+)
 DATABASES["default"].update(dj_database_url.config(conn_max_age=500))
 
 ACCOUNT_ACTIVATION_DAYS: int = 7  # amount of days for link to be activated
@@ -109,6 +125,8 @@ EMAIL_HOST_USER: str = ""
 EMAIL_HOST_PASSWORD: str = ""
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticatedOrReadOnly",),
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+    ),
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 }

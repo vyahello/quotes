@@ -1,6 +1,15 @@
 """Module represents API for database models."""
 from typing import List
-from django.db.models import CASCADE, CharField, DateTimeField, Field, ForeignKey, Model, TextField, URLField
+from django.db.models import (
+    CASCADE,
+    CharField,
+    DateTimeField,
+    Field,
+    ForeignKey,
+    Model,
+    TextField,
+    URLField,
+)
 from django_registration.forms import User
 
 

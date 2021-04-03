@@ -1,6 +1,9 @@
 """Module represents API for routes."""
 from typing import List, Type
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import (
+    ListCreateAPIView,
+    RetrieveUpdateDestroyAPIView,
+)
 from app.models import Quote
 from .serializers import QuoteSerializer
 from .permissions import IsOwnerOrReadOnly

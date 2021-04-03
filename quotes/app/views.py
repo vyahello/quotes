@@ -9,7 +9,12 @@ from .forms import QuoteForm
 from .models import Quote
 
 
-def __fill_new_form(request: WSGIRequest, form: QuoteForm, message: str, context: Dict[str, Any]) -> HttpResponse:
+def __fill_new_form(
+    request: WSGIRequest,
+    form: QuoteForm,
+    message: str,
+    context: Dict[str, Any],
+) -> HttpResponse:
     """Fills fresh quote form.
 
     Args:
@@ -24,7 +29,9 @@ def __fill_new_form(request: WSGIRequest, form: QuoteForm, message: str, context
         form.save()
         messages.success(request, message)
         return redirect(to="quotes:quotes")
-    return render(request, template_name="quotes/new_quote.html", context=context)
+    return render(
+        request, template_name="quotes/new_quote.html", context=context
+    )
 
 
 def quotes(request: WSGIRequest) -> HttpResponse:
@@ -48,7 +55,9 @@ def detail_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
         primary_key (int): id number of a quote
     """
     return render(
-        request, template_name="quotes/detail_quote.html", context={"quote": get_object_or_404(Quote, pk=primary_key)}
+        request,
+        template_name="quotes/detail_quote.html",
+        context={"quote": get_object_or_404(Quote, pk=primary_key)},
     )
 
 
@@ -60,7 +69,9 @@ def new_quote(request: WSGIRequest) -> HttpResponse:
         request (WSGIRequest): user request
     """
     form: QuoteForm = QuoteForm(data=request.POST or None)
-    return __fill_new_form(request, form, message="Quote is added", context={"form": form})
+    return __fill_new_form(
+        request, form, message="Quote is added", context={"form": form}
+    )
 
 
 @login_required
@@ -73,7 +84,12 @@ def edit_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
     """
     quote: Quote = get_object_or_404(Quote, pk=primary_key, user=request.user)
     form: QuoteForm = QuoteForm(request.POST or None, instance=quote)
-    return __fill_new_form(request, form, message="Quote is updated", context={"quote": quote, "form": form})
+    return __fill_new_form(
+        request,
+        form,
+        message="Quote is updated",
+        context={"quote": quote, "form": form},
+    )
 
 
 @login_required
@@ -89,4 +105,8 @@ def delete_quote(request: WSGIRequest, primary_key: int) -> HttpResponse:
         quote.delete()
         messages.success(request, message="Quote is deleted")
         return redirect(to="quotes:quotes")
-    return render(request, template_name="quotes/delete_quote.html", context={"quote": quote})
+    return render(
+        request,
+        template_name="quotes/delete_quote.html",
+        context={"quote": quote},
+    )

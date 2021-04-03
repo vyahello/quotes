@@ -8,6 +8,12 @@ from app.models import Quote
 class IsOwnerOrReadOnly(BasePermission):
     """Make sure only owners of quotes can edit them."""
 
-    def has_object_permission(self, request: Request, _: GenericAPIView, obj: Quote) -> bool:  # noqa: U101
+    def has_object_permission(  # noqa: U101
+        self, request: Request, _: GenericAPIView, obj: Quote
+    ) -> bool:
         """Checks in objects has appropriate permissions."""
-        return True if request.method in SAFE_METHODS else obj.user == request.user
+        return (
+            True
+            if request.method in SAFE_METHODS
+            else obj.user == request.user
+        )
