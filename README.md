@@ -1,4 +1,4 @@
-![Screenshot](icon.png)
+![Screenshot](media/icon.png)
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Build Status](https://travis-ci.org/vyahello/quotes.svg?branch=master)](https://travis-ci.org/vyahello/quotes)
@@ -45,11 +45,11 @@ _**Note**: please take into account that it is built for demo purpose but not fo
 
 ## Usage
 
-![Usage](usage.gif)
+![Usage](media/usage.gif)
 
 ### Quick start 
 
-Please use https://quote-quote.herokuapp.com deployed application.
+Please discover https://quote-quote.herokuapp.com deployed application.
 
 ### Docker
 
