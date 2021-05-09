@@ -1,4 +1,4 @@
-![Screenshot](media/icon.png)
+![Screenshot](media/logo.png)
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Build Status](https://travis-ci.org/vyahello/quotes.svg?branch=master)](https://travis-ci.org/vyahello/quotes)
