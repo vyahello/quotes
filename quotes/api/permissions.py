@@ -8,7 +8,7 @@ from app.models import Quote
 class IsOwnerOrReadOnly(BasePermission):
     """Make sure only owners of quotes can edit them."""
 
-    def has_object_permission(  # noqa: U101
+    def has_object_permission(  # noqa: U101, pylint:disable=no-self-use
         self, request: Request, _: GenericAPIView, obj: Quote
     ) -> bool:
         """Checks in objects has appropriate permissions."""
