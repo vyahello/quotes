@@ -49,7 +49,9 @@ _**Note**: please take into account that it is built for demo purpose but not fo
 
 ### Quick start 
 
-Please discover https://quote-quote.herokuapp.com deployed application.
+Please discover app via:
+  - https://quote-quote.herokuapp.com (prod stage)
+  - http://178.62.222.165:5003 (test stage)
 
 ### Docker
 
@@ -100,6 +102,10 @@ python quotes/manage.py createsuperuser  # create user for administration
 To manage an application please use `/admin` endpoint.
 
 Please use `admin` superuser for management.
+
+### Docker 
+
+Please use the following [example notes](https://github.com/vyahello/pep8-checker#development-notes) to proceed with docker image provisioning.
 
 ### Testing
 
