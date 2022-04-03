@@ -44,4 +44,4 @@ DOC
 }
 
 
-main $@
+main "$@"

@@ -61,6 +61,15 @@ docker run --rm -it -p 3000:5001 vyahello/quotes:<version> quotes
 
 > Please access an application via http://0.0.0.0:3000 endpoint
 
+### K8S 
+
+```bash
+kubectl create deployment hello-world-rest-api --image=vyahello/quotes 
+kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=3000
+```
+
+> Please access an application via http://0.0.0.0:3000 endpoint
+
 ### Source code
 
 ```bash
@@ -106,6 +115,19 @@ Please use `admin` superuser for management.
 ### Docker 
 
 Please use the following [example notes](https://github.com/vyahello/pep8-checker#development-notes) to proceed with docker image provisioning.
+
+### K8S
+
+It is possible to orchestrate app via kubernetes, the following command will launch 3 instances of app.
+
+```bash
+kubectl apply -f deployment.yaml
+kubectl get pods
+NAME                      READY   STATUS    RESTARTS   AGE
+quotes-6f64474dc5-7ct8t   1/1     Running   0          4m49s
+quotes-6f64474dc5-95cx8   1/1     Running   0          4m49s
+quotes-6f64474dc5-dg5n8   1/1     Running   0          4m49s
+```
 
 ### Testing
 
