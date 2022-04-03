@@ -32,6 +32,7 @@ _**Note**: please take into account that it is built for demo purpose but not fo
   - python 3.6, 3.7, 3.8
   - [django](https://www.djangoproject.com/) web framework
 - [docker](https://www.docker.com/) >= 18.0
+- [k8s](https://kubernetes.io/) >= 1.21.1
 
 ### Development 
 
@@ -64,8 +65,8 @@ docker run --rm -it -p 3000:5001 vyahello/quotes:<version> quotes
 ### K8S 
 
 ```bash
-kubectl create deployment hello-world-rest-api --image=vyahello/quotes 
-kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=3000
+kubectl create deployment quotes --image=vyahello/quotes 
+kubectl expose deployment quotes --type=LoadBalancer --port=3000
 ```
 
 > Please access an application via http://0.0.0.0:3000 endpoint
@@ -121,7 +122,7 @@ Please use the following [example notes](https://github.com/vyahello/pep8-checke
 It is possible to orchestrate app via kubernetes, the following command will launch 3 instances of app.
 
 ```bash
-kubectl apply -f deployment.yaml
+kubectl apply -f k8s/deployment.yaml
 kubectl get pods
 NAME                      READY   STATUS    RESTARTS   AGE
 quotes-6f64474dc5-7ct8t   1/1     Running   0          4m49s

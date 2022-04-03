@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment  # type, could be Deployment, Service, ReplicaSet
+# info about deployment
+metadata:
+  labels:
+    app: quotes
+  name: quotes
+  namespace: default
+spec:
+  replicas: 3
+  minReadySeconds: 45  # give the container 45sec and only then send the request
+  selector:  # how pod is mapped to a deployment
+    matchLabels:
+      app: quotes
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%  # how many instances to create each time
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: quotes  # label of a pod
+    spec:
+      containers:
+      - image: vyahello/quotes:0.1.2  # docker image, could be many images
+        imagePullPolicy: IfNotPresent  # pull image if not present, could be also Always
+        name: quotes  # container name
+        args:
+          - "quotes"
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service  # service maps to a pod but not deployment
+metadata:
+  labels:
+    app: quotes
+  name: quotes
+  namespace: default
+spec:
+  ports:
+  - nodePort: 31179
+    port: 3000
+    protocol: TCP
+    targetPort: 5001
+  selector:
+    app: quotes
+  sessionAffinity: None
+  type: LoadBalancer
