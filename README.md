@@ -29,7 +29,7 @@ _**Note**: please take into account that it is built for demo purpose but not fo
   - html5
   - css3
 - back-end
-  - python 3.6, 3.7, 3.8
+  - python 3.7, 3.8
   - [django](https://www.djangoproject.com/) web framework
 - [docker](https://www.docker.com/) >= 18.0
 - [k8s](https://kubernetes.io/) >= 1.21.1
