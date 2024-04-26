@@ -74,6 +74,12 @@ kubectl expose deployment quotes --type=LoadBalancer --port=3000
 ### Source code
 
 ```bash
+git clone git@github.com:vyahello/quotes.git
+cd quotes 
+python3 -m venv venv 
+. venv/bin/activate
+pip install -r requirements.txt 
+pip install -r requirements-dev.txt 
 python quotes/manage.py runserver
 ```
 
@@ -115,7 +121,7 @@ Please use `admin` superuser for management.
 
 ### Docker 
 
-Please use the following [example notes](https://github.com/vyahello/pep8-checker#development-notes) to proceed with docker image provisioning.
+Please use the following [example notes](https://github.com/vyahello/quotes#development-notes) to proceed with docker image provisioning.
 
 ### K8S
 
